@@ -1,0 +1,36 @@
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <a class="navbar-brand mx-auto ">Dashboard de Proyectos</a>
+  <form class="form-inline" name="dashboard">
+    <%# <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="content"> %>
+    <select class="form-control" id="content" name="content">
+      <option></option>
+      <option>Propuesta</option>
+      <option>En progreso</option>
+      <option>Terminado</option>
+    </select>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Estado</button>
+  </form>
+</nav>
+<%#<%= form_with url: projects_dashboard_path, method: :get do %>
+<%#<%= select_tag("content", options_for_select(['Propuesta','En Progreso','Terminado']), include_blank: true) %>
+<%#<%= submit_tag 'filtrar'%>
+<%#<%end%>
+<table class="table">
+  <tr>
+    <th>Nombre del Proyecto</th>
+    <th>Descripción</th>
+    <th>Fecha inicio </th>
+    <th>Fecha término</th>
+    <th>Estado</th>
+  </tr>
+  <% @projects.each do |project|%>
+    <tr>
+      <td><%= project.name %></td>
+      <td><%= project.description %></td>
+      <td><%= project.start_date %></td>
+      <td><%= project.end_date %></td>
+      <td><%= project.content %></td>
+    </tr>
+  <% end %>
+
+</table>
